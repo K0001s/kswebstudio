@@ -1,849 +1,778 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Профессиональная разработка сайтов | Создание сайтов на заказ</title>
-    <meta name="description" content="Профессиональная разработка сайтов под ключ. Сайт-визитка от 25 000 руб., блог за 2 000-5 000 руб., интернет-магазин на WordPress от 40 000 руб. Скидки до 20%!">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
-            --secondary: #64748b;
-            --accent: #f59e0b;
-            --dark: #1e293b;
-            --light: #f8fafc;
-            --gray: #e2e8f0;
-            --transition: all 0.3s ease;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--dark);
-            background-color: var(--light);
-            overflow-x: hidden;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-        
-        /* Header & Navigation */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            padding: 1rem 0;
-            transition: var(--transition);
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-        }
-        
-        .nav-menu {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-item {
-            margin-left: 2rem;
-        }
-        
-        .nav-link {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            transition: var(--transition);
-        }
-        
-        .nav-link:hover {
-            color: var(--primary);
-        }
-        
-        .hamburger {
-            display: none;
-            cursor: pointer;
-        }
-        
-        .bar {
-            display: block;
-            width: 25px;
-            height: 3px;
-            margin: 5px auto;
-            background-color: var(--dark);
-            transition: var(--transition);
-        }
-        
-        /* Hero Section */
-        .hero {
-            padding: 10rem 0 5rem;
-            text-align: center;
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .hero-title {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: var(--secondary);
-            margin-bottom: 2.5rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 0.8rem 2rem;
-            background-color: var(--primary);
-            color: white;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-        }
-        
-        .btn:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.15);
-        }
-        
-        .btn-accent {
-            background-color: var(--accent);
-        }
-        
-        .btn-accent:hover {
-            background-color: #e99a0c;
-        }
-        
-        /* Pricing Section */
-        .section {
-            padding: 5rem 0;
-        }
-        
-        .section-title {
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 3rem;
-            text-align: center;
-            position: relative;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background-color: var(--primary);
-            border-radius: 2px;
-        }
-        
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .pricing-card {
-            background: white;
-            padding: 2.5rem 2rem;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-            text-align: center;
-        }
-        
-        .pricing-card.popular::before {
-            content: 'ПОПУЛЯРНЫЙ';
-            position: absolute;
-            top: 15px;
-            right: -30px;
-            background: var(--accent);
-            color: white;
-            padding: 5px 30px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            transform: rotate(45deg);
-        }
-        
-        .pricing-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-        }
-        
-        .pricing-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-        }
-        
-        .pricing-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .price {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-        }
-        
-        .price-old {
-            text-decoration: line-through;
-            color: var(--secondary);
-            font-size: 1.5rem;
-            margin-right: 0.5rem;
-        }
-        
-        .price-discount {
-            color: #ef4444;
-            font-weight: 600;
-        }
-        
-        .pricing-features {
-            list-style: none;
-            margin-bottom: 2rem;
-            text-align: left;
-        }
-        
-        .pricing-feature {
-            padding: 0.5rem 0;
-            display: flex;
-            align-items: center;
-        }
-        
-        .pricing-feature::before {
-            content: '✓';
-            color: var(--primary);
-            font-weight: bold;
-            margin-right: 0.5rem;
-        }
-        
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-        
-        .about-text {
-            font-size: 1.1rem;
-            color: var(--secondary);
-            line-height: 1.8;
-        }
-        
-        .about-image {
-            width: 100%;
-            border-radius: 12px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
-        }
-        
-        .about-image:hover {
-            transform: scale(1.02);
-        }
-        
-        /* How It Works Section */
-        .how-it-works {
-            background-color: var(--gray);
-        }
-        
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            counter-reset: step;
-        }
-        
-        .step {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            position: relative;
-            padding-top: 3.5rem;
-        }
-        
-        .step::before {
-            counter-increment: step;
-            content: counter(step);
-            position: absolute;
-            top: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 40px;
-            height: 40px;
-            background: var(--primary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-        }
-        
-        .step-title {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-        
-        .step-text {
-            color: var(--secondary);
-            text-align: center;
-        }
-        
-        /* FAQ Section */
-        .faq-item {
-            margin-bottom: 1.5rem;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-        
-        .faq-question {
-            padding: 1.5rem;
-            background: white;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .faq-answer {
-            padding: 0 1.5rem;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            background: white;
-        }
-        
-        .faq-answer.active {
-            max-height: 300px;
-            padding: 0 1.5rem 1.5rem;
-        }
-        
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .modal.active {
-            display: flex;
-        }
-        
-        .modal-content {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            max-width: 500px;
-            width: 100%;
-            margin: 1rem;
-            position: relative;
-        }
-        
-        .modal-close {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 3rem 0;
-        }
-        
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .footer-logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: white;
-        }
-        
-        .footer-text {
-            color: rgba(255, 255, 255, 0.7);
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 1rem;
-        }
-        
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: white;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        .social-link:hover {
-            background-color: var(--primary);
-            transform: translateY(-3px);
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .about-image {
-                order: -1;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .hamburger {
-                display: block;
-            }
-            
-            .hamburger.active .bar:nth-child(2) {
-                opacity: 0;
-            }
-            
-            .hamburger.active .bar:nth-child(1) {
-                transform: translateY(8px) rotate(45deg);
-            }
-            
-            .hamburger.active .bar:nth-child(3) {
-                transform: translateY(-8px) rotate(-45deg);
-            }
-            
-            .nav-menu {
-                position: fixed;
-                left: -100%;
-                top: 70px;
-                gap: 0;
-                flex-direction: column;
-                background-color: white;
-                width: 100%;
-                text-align: center;
-                transition: 0.3s;
-                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-                padding: 2rem 0;
-            }
-            
-            .nav-menu.active {
-                left: 0;
-            }
-            
-            .nav-item {
-                margin: 1.5rem 0;
-            }
-            
-            .hero {
-                padding: 8rem 0 3rem;
-            }
-            
-            .hero-title {
-                font-size: 2rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .footer-content {
-                flex-direction: column;
-                gap: 1.5rem;
-                text-align: center;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero-title {
-                font-size: 1.8rem;
-            }
-            
-            .btn {
-                padding: 0.7rem 1.5rem;
-            }
-            
-            .pricing-card {
-                padding: 1.5rem;
-            }
-        }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Профессиональная разработка сайтов | Создание сайтов на заказ</title>
+<meta name="description" content="Профессиональная разработка сайтов под ключ. Сайт-визитка от 25 000 руб., блог за 2 000-5 000 руб., интернет-магазин на WordPress от 40 000 руб. Скидки до 20%!">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+:root {
+    --primary: #000000; /* основной черный */
+    --neon: #ffffff; /* немного белого неонового */
+    --secondary: #cccccc; /* светло-серый для акцентов */
+    --accent: #00ffff; /* неоновый голубой для акцентов */
+    --dark: #000000;
+    --light: #f0f0f0;
+    --gray: #e0e0e0;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--dark);
+    background-color: var(--light);
+    overflow-x: hidden;
+}
+
+/* Общие стили для ссылок */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Шапка и навигация */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+/* Логотип */
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+/* Меню навигации */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-item {}
+
+/* Ссылки меню */
+.nav-link {
+    font-weight: 500;
+    transition: var(--transition);
+    color: var(--dark);
+}
+
+.nav-link:hover {
+    color: var(--accent);
+}
+
+/* Гамбургер меню для мобильных — только справа в верхнем углу */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    width: 30px;
+    height: 24px;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 1100;
+}
+
+.bar {
+    width: 100%;
+    height: 3px;
+    background-color: var(--dark);
+    transition: var(--transition);
+}
+
+/* Герой секция */
+.hero {
+    padding: 10rem 2rem 5rem;
+    text-align: center;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    color: var(--primary);
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--secondary);
+    margin-bottom: 2.5rem;
+}
+
+/* Кнопки */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: var(--primary);
+    color: var(--neon);
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    margin: 0 0.5rem;
+}
+
+.btn:hover {
+    background-color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Акцентные кнопки */
+.btn-accent {
+    background-color: var(--accent);
+}
+
+.btn-accent:hover {
+    background-color: #00cccc;
+}
+
+/* Разделы */
+.section {
+    padding: 5rem 2rem;
+}
+
+/* Заголовки разделов */
+.section-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    text-align: center;
+    position: relative;
+    color: var(--primary);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--accent);
+    border-radius: 2px;
+}
+
+/* Цены */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.pricing-card {
+    background: #fff;
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+.pricing-card.popular::before {
+    content: 'ПОПУЛЯРНЫЙ';
+    position: absolute;
+    top: 15px;
+    right: -30px;
+    background: var(--accent);
+    color: white;
+    padding: 5px 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transform: rotate(45deg);
+}
+
+.pricing-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.pricing-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary);
+}
+
+.pricing-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--dark);
+}
+
+.price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--primary);
+}
+
+.price-old {
+    text-decoration: line-through;
+    color: var(--secondary);
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+}
+
+.price-discount {
+    color: #00ffff; /* неоновый */
+    font-weight: 600;
+}
+
+.pricing-features {
+    list-style: none;
+    margin-bottom: 2rem;
+    text-align: left;
+    padding-left: 0;
+}
+
+.pricing-feature {
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+}
+.pricing-feature::before {
+    content: '✓';
+    color: var(--accent);
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+/* Обо мне */
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+.about-text {
+    font-size: 1.1rem;
+    color: var(--secondary);
+    line-height: 1.8;
+}
+.about-image {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    transition: var(--transition);
+}
+.about-image:hover {
+    transform: scale(1.02);
+}
+
+/* Как заказать */
+.how-it-works {
+    background-color: transparent;
+}
+.steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+.step {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    position: relative;
+    padding-top: 3.5rem;
+    transition: var(--transition);
+}
+.step::before {
+    counter-increment: step;
+    content: counter(step);
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    background: var(--accent);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+.step-title {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: var(--primary);
+}
+.step-text {
+    color: var(--secondary);
+    text-align: center;
+}
+
+/* FAQ */
+.faq-item {
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+.faq-question {
+    padding: 1.5rem;
+    background: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.faq-answer {
+    padding: 0 1.5rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: #fff;
+}
+.faq-answer.active {
+    max-height: 300px;
+    padding: 0 1.5rem 1.5rem;
+}
+
+/* Модальное окно */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+.modal.active {
+    display: flex;
+}
+.modal-content {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+}
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Подвал */
+footer {
+    background-color: var(--dark);
+    color: #fff;
+    padding: 3rem 2rem;
+}
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.footer-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--neon);
+}
+.footer-text {
+    margin-top: 1rem;
+    color: rgba(255,255,255,0.7);
+}
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.1);
+    color: #fff;
+    font-size: 1.2rem;
+    transition: var(--transition);
+}
+.social-link:hover {
+    background-color: var(--accent);
+    transform: translateY(-3px);
+}
+
+/* Мобильные стили */
+@media(max-width:992px){
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+    }
+    /* добавляем позицию для гамбургера в правом верхнем углу */
+    #hamburger {
+        display: flex;
+        position: absolute;
+        top: 1rem;
+        right: 2rem;
+        z-index: 1100;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 24px;
+    }
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        background: #fff;
+        padding: 2rem 0;
+        box-shadow: 0 10px 27px rgba(0,0,0,0.05);
+        transition: all 0.3s ease;
+        z-index: 999;
+    }
+    .nav-menu.active {
+        display: flex;
+    }
+    /* В мобильной версии чуть дальше друг от друга */
+    .btn {
+        margin: 0 0.75rem;
+    }
+}
+</style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container header-container">
-            <a href="#" class="logo">(KS)WebStudio</a>
-            
-            <nav>
-                <ul class="nav-menu">
-                    <li class="nav-item"><a href="#" class="nav-link">Главная</a></li>
-                    <li class="nav-item"><a href="#pricing" class="nav-link">Услуги и цены</a></li>
-                    <li class="nav-item"><a href="#about" class="nav-link">Обо мне</a></li>
-                    <li class="nav-item"><a href="#how-it-works" class="nav-link">Как заказать</a></li>
-                    <li class="nav-item"><a href="#faq" class="nav-link">FAQ</a></li>
-                </ul>
-                
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container hero-content">
-            <h1 class="hero-title">Профессиональная разработка сайтов под ключ</h1>
-            <p class="hero-subtitle">Создаю современные, быстрые и эффективные сайты, которые привлекают клиентов и увеличивают продажи</p>
-            <a href="#pricing" class="btn">Посмотреть цены</a>
-            <a href="#" class="btn btn-accent" id="order-now-btn">Заказать сайт</a>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section id="pricing" class="section">
-        <div class="container">
-            <h2 class="section-title">Услуги и цены</h2>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <div class="pricing-icon">📄</div>
-                    <h3 class="pricing-title">Сайт-визитка</h3>
-                    <div class="price">
-                        <span class="price-old">30 000₽</span>
-                        <span class="price-discount">25 000₽</span>
-                    </div>
-                    <ul class="pricing-features">
-                        <li class="pricing-feature">До 5 страниц</li>
-                        <li class="pricing-feature">Адаптивный дизайн</li>
-                        <li class="pricing-feature">Контент-менеджер</li>
-                        <li class="pricing-feature">Базовое SEO</li>
-                        <li class="pricing-feature">Контактная форма</li>
-                        <li class="pricing-feature">Гарантия 1 месяц</li>
-                    </ul>
-                    <a href="#" class="btn order-btn" data-service="Сайт-визитка">Заказать</a>
-                </div>
-                
-                <div class="pricing-card popular">
-                    <div class="pricing-icon">✏️</div>
-                    <h3 class="pricing-title">Блог на WordPress</h3>
-                    <div class="price">
-                        <span class="price-old">5 000₽</span>
-                        <span class="price-discount">2 000₽</span>
-                    </div>
-                    <ul class="pricing-features">
-                        <li class="pricing-feature">Установка WordPress</li>
-                        <li class="pricing-feature">Выбор и настройка темы</li>
-                        <li class="pricing-feature">Базовые плагины</li>
-                        <li class="pricing-feature">Инструкция по использованию</li>
-                        <li class="pricing-feature">Настройка комментариев</li>
-                        <li class="pricing-feature">Гарантия 2 недели</li>
-                    </ul>
-                    <a href="#" class="btn order-btn" data-service="Блог на WordPress">Заказать</a>
-                </div>
-                
-                <div class="pricing-card">
-                    <div class="pricing-icon">🛒</div>
-                    <h3 class="pricing-title">Интернет-магазин</h3>
-                    <div class="price">
-                        <span class="price-old">100 000₽</span>
-                        <span class="price-discount">40 000₽</span>
-                    </div>
-                    <ul class="pricing-features">
-                        <li class="pricing-feature">До 50 товаров</li>
-                        <li class="pricing-feature">Корзина и оформление заказа</li>
-                        <li class="pricing-feature">Платежные системы</li>
-                        <li class="pricing-feature">Управление товарами</li>
-                        <li class="pricing-feature">Поиск по каталогу</li>
-                        <li class="pricing-feature">Гарантия 3 месяца</li>
-                    </ul>
-                    <a href="#" class="btn order-btn" data-service="Интернет-магазин">Заказать</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container">
-            <h2 class="section-title">Обо мне</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Я профессиональный веб-разработчик с 7-летним опытом создания сайтов различной сложности. Специализируюсь на разработке современных, быстрых и адаптивных веб-сайтов, которые эффективно решают бизнес-задачи.</p>
-                    <p>За время работы я реализовал более 150 проектов для клиентов из различных сфер бизнеса. Я постоянно совершенствую свои навыки и слежу за последними тенденциями в веб-разработке.</p>
-                    <p>Мой подход сочетает в себе креативность, техническое мастерство и внимание к деталям, что позволяет создавать продукты, которые не только выглядят великолепно, но и эффективно работают на ваш бизнес.</p>
-                </div>
-                <img src="image.jpg" alt="Профессиональный портрет" class="about-image">
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works Section -->
-    <section id="how-it-works" class="section how-it-works">
-        <div class="container">
-            <h2 class="section-title">Как заказать сайт</h2>
-            <div class="steps">
-                <div class="step">
-                    <h3 class="step-title">Заявка</h3>
-                    <p class="step-text">Нажмите кнопку "Заказать" и напишите мне в WhatsApp, какой тип сайта вам нужен</p>
-                </div>
-                
-                <div class="step">
-                    <h3 class="step-title">Обсуждение</h3>
-                    <p class="step-text">Я уточню детали проекта, сроки и предоставлю индивидуальное коммерческое предложение</p>
-                </div>
-                
-                <div class="step">
-                    <h3 class="step-title">Реализация</h3>
-                    <p class="step-text">После согласования и предоплаты я приступаю к работе над вашим проектом</p>
-                </div>
-                
-                <div class="step">
-                    <h3 class="step-title">Запуск</h3>
-                    <p class="step-text">Вы принимаете работу, вносите финальную оплату и получаете готовый сайт</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section id="faq" class="section">
-        <div class="container">
-            <h2 class="section-title">Часто задаваемые вопросы</h2>
-            
-            <div class="faq-item">
-                <div class="faq-question">
-                    Сколько времени занимает разработка сайта?
-                    <span>+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Сроки зависят от типа сайта и сложности. Сайт-визитка - 1-5 дней, блог на WordPress - 1-2 дня, интернет-магазин - 5-15 дней.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">
-                    Нужно ли мне предоставлять хостинг и домен?
-                    <span>+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Я могу помочь с выбором и покупкой хостинга и домена, либо вы можете предоставить свои. В стоимость разработки хостинг и домен не входят.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">
-                    Вы занимаетесь продвижением сайтов?
-                    <span>+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Да, я предоставляю услуги по базовому SEO-продвижению. При заказе разработки сайта вы получаете скидку 20% на SEO-услуги.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">
-                    Можно ли заказать доработку существующего сайта?
-                    <span>+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Да, я занимаюсь доработкой и улучшением существующих сайтов. Стоимость и сроки зависят от объема работ.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container footer-content">
-            <div>
-                <a href="#" class="footer-logo">(KS)WebStudio</a>
-                <p class="footer-text">Профессиональная разработка сайтов под ключ</p>
-            </div>
-            
-            <div class="social-links">
-                <a href="#" class="social-link">📘</a>
-                <a href="#" class="social-link">📸</a>
-                <a href="#" class="social-link">🐦</a>
-                <a href="#" class="social-link">💼</a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Order Modal -->
-    <div class="modal" id="order-modal">
-        <div class="modal-content">
-            <button class="modal-close">&times;</button>
-            <h2>Как заказать сайт</h2>
-            <p>Чтобы заказать сайт, выполните следующие действия:</p>
-            <ol>
-                <li>Нажмите кнопку "Написать в WhatsApp" ниже</li>
-                <li>В сообщении укажите:
-                    <ul>
-                        <li>Тип сайта (визитка, блог, магазин)</li>
-                        <li>Примерные сроки</li>
-                        <li>Ваш бюджет</li>
-                        <li>Особые пожелания</li>
-                    </ul>
-                </li>
-                <li>Прикрепите ТЗ (если есть) или опишите проект</li>
-                <li>Я отвечу в течение 2 часов в рабочее время</li>
-            </ol>
-            <a href="https://wa.me/79319980612?text=Здравствуйте!%20Я%20заинтересован%20в%20разработке%20сайта" class="btn" id="whatsapp-btn">Написать в WhatsApp</a>
-        </div>
+<!-- Шапка -->
+<header>
+<div class="header-container">
+    <a href="#" class="logo">(KS)WebStudio</a>
+    <!-- В мобильной версии бургер в правом верхнем углу -->
+    <div class="hamburger" id="hamburger">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
     </div>
+    <ul class="nav-menu" id="nav-menu">
+        <li class="nav-item"><a href="#" class="nav-link">Главная</a></li>
+        <li class="nav-item"><a href="#pricing" class="nav-link">Услуги и цены</a></li>
+        <li class="nav-item"><a href="#about" class="nav-link">Обо мне</a></li>
+        <li class="nav-item"><a href="#how-it-works" class="nav-link">Как заказать</a></li>
+        <li class="nav-item"><a href="#faq" class="nav-link">FAQ</a></li>
+    </ul>
+</div>
+</header>
 
-    <script>
-        // Mobile Navigation Toggle
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
-        
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-        
-        document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-        }));
-        
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.style.padding = '0.7rem 0';
-                header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
-            } else {
-                header.style.padding = '1rem 0';
-                header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.05)';
-            }
-        });
-        
-        // FAQ Accordion
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                answer.classList.toggle('active');
-                
-                const icon = question.querySelector('span');
-                icon.textContent = answer.classList.contains('active') ? '−' : '+';
-            });
-        });
-        
-        // Order Modal
-        const orderModal = document.getElementById('order-modal');
-        const orderButtons = document.querySelectorAll('.order-btn, #order-now-btn');
-        const closeModal = document.querySelector('.modal-close');
-        const whatsappBtn = document.getElementById('whatsapp-btn');
-        
-        orderButtons.forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-                orderModal.classList.add('active');
-                
-                // Update WhatsApp link with service type if available
-                if (button.dataset.service) {
-                    const message = `Здравствуйте! Я хочу заказать: ${button.dataset.service}`;
-                    whatsappBtn.href = `https://wa.me/79319980612?text=${encodeURIComponent(message)}`;
-                }
-            });
-        });
-        
-        closeModal.addEventListener('click', () => {
-            orderModal.classList.remove('active');
-        });
-        
-        window.addEventListener('click', (e) => {
-            if (e.target === orderModal) {
-                orderModal.classList.remove('active');
-            }
-        });
-        
-        // Replace phone number with your actual number
-        const phoneNumber = '79319980612'; // Replace with your number
-        document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
-            link.href = link.href.replace('79319980612', phoneNumber);
-        });
-    </script>
+<!-- Герой -->
+<section class="hero">
+<div class="container">
+<h1 class="hero-title">Профессиональная разработка сайтов под ключ</h1>
+<p class="hero-subtitle">Создаю современные, быстрые и эффективные сайты, которые привлекают клиентов и увеличивают продажи</p>
+<a href="#pricing" class="btn">Посмотреть цены</a>
+<a href="#" class="btn btn-accent" id="order-now-btn">Заказать сайт</a>
+</div>
+</section>
+
+<!-- Услуги и цены -->
+<section id="pricing" class="section">
+<div class="container">
+<h2 class="section-title">Услуги и цены</h2>
+<div class="pricing-grid">
+<div class="pricing-card">
+<div class="pricing-icon">📄</div>
+<h3 class="pricing-title">Сайт-визитка</h3>
+<div class="price">
+<span class="price-old">30 000₽</span>
+<span class="price-discount">25 000₽</span>
+</div>
+<ul class="pricing-features">
+<li class="pricing-feature">До 5 страниц</li>
+<li class="pricing-feature">Адаптивный дизайн</li>
+<li class="pricing-feature">Контент-менеджер</li>
+<li class="pricing-feature">Базовое SEO</li>
+<li class="pricing-feature">Контактная форма</li>
+<li class="pricing-feature">Гарантия 1 месяц</li>
+</ul>
+<a href="#" class="btn order-btn" data-service="Сайт-визитка">Заказать</a>
+</div>
+<div class="pricing-card popular">
+<div class="pricing-icon">✏️</div>
+<h3 class="pricing-title">Блог на WordPress</h3>
+<div class="price">
+<span class="price-old">5 000₽</span>
+<span class="price-discount">2 000₽</span>
+</div>
+<ul class="pricing-features">
+<li class="pricing-feature">Установка WordPress</li>
+<li class="pricing-feature">Выбор и настройка темы</li>
+<li class="pricing-feature">Базовые плагины</li>
+<li class="pricing-feature">Инструкция по использованию</li>
+<li class="pricing-feature">Настройка комментариев</li>
+<li class="pricing-feature">Гарантия 2 недели</li>
+</ul>
+<a href="#" class="btn order-btn" data-service="Блог на WordPress">Заказать</a>
+</div>
+<div class="pricing-card">
+<div class="pricing-icon">🛒</div>
+<h3 class="pricing-title">Интернет-магазин</h3>
+<div class="price">
+<span class="price-old">100 000₽</span>
+<span class="price-discount">40 000₽</span>
+</div>
+<ul class="pricing-features">
+<li class="pricing-feature">До 50 товаров</li>
+<li class="pricing-feature">Корзина и оформление заказа</li>
+<li class="pricing-feature">Платежные системы</li>
+<li class="pricing-feature">Управление товарами</li>
+<li class="pricing-feature">Поиск по каталогу</li>
+<li class="pricing-feature">Гарантия 3 месяца</li>
+</ul>
+<a href="#" class="btn order-btn" data-service="Интернет-магазин">Заказать</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Обо мне -->
+<section id="about" class="section">
+<div class="container">
+<h2 class="section-title">Обо мне</h2>
+<div class="about-content">
+<div class="about-text">
+<p>Я профессиональный веб-разработчик с 7-летним опытом создания сайтов различной сложности. Специализируюсь на разработке современных, быстрых и адаптивных веб-сайтов, которые эффективно решают бизнес-задачи.</p>
+<p>За время работы я реализовал более 150 проектов для клиентов из различных сфер бизнеса. Я постоянно совершенствую свои навыки и слежу за последними тенденциями в веб-разработке.</p>
+<p>Мой подход сочетает в себе креативность, техническое мастерство и внимание к деталям, что позволяет создавать продукты, которые не только выглядят великолепно, но и эффективно работают на ваш бизнес.</p>
+</div>
+<img src="image.jpg" alt="Профессиональный портрет" class="about-image" />
+</div>
+</div>
+</section>
+
+<!-- Как заказать сайт -->
+<section id="how-it-works" class="section how-it-works">
+<div class="container">
+<h2 class="section-title">Как заказать сайт</h2>
+<div class="steps">
+<div class="step">
+<h3 class="step-title">Заявка</h3>
+<p class="step-text">Нажмите кнопку "Заказать" и напишите мне в WhatsApp, какой тип сайта вам нужен</p>
+</div>
+<div class="step">
+<h3 class="step-title">Обсуждение</h3>
+<p class="step-text">Я уточню детали проекта, сроки и предоставлю индивидуальное коммерческое предложение</p>
+</div>
+<div class="step">
+<h3 class="step-title">Реализация</h3>
+<p class="step-text">После согласования и предоплаты я приступаю к работе над вашим проектом</p>
+</div>
+<div class="step">
+<h3 class="step-title">Запуск</h3>
+<p class="step-text">Вы принимаете работу, вносите финальную оплату и получаете готовый сайт</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="section">
+<div class="container">
+<h2 class="section-title">Часто задаваемые вопросы</h2>
+<div class="faq-item">
+<div class="faq-question">
+Сколько времени занимает разработка сайта?
+<span>+</span>
+</div>
+<div class="faq-answer">
+<p>Сроки зависят от типа сайта и сложности. Сайт-визитка - 1-5 дней, блог на WordPress - 1-2 дня, интернет-магазин - 5-15 дней.</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-question">
+Нужно ли мне предоставлять хостинг и домен?
+<span>+</span>
+</div>
+<div class="faq-answer">
+<p>Я могу помочь с выбором и покупкой хостинга и домена, либо вы можете предоставить свои. В стоимость разработки хостинг и домен не входят.</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-question">
+Вы занимаетесь продвижением сайтов?
+<span>+</span>
+</div>
+<div class="faq-answer">
+<p>Да, я предоставляю услуги по базовому SEO-продвижению. При заказе разработки сайта вы получаете скидку 20% на SEO-услуги.</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-question">
+Можно ли заказать доработку существующего сайта?
+<span>+</span>
+</div>
+<div class="faq-answer">
+<p>Да, я занимаюсь доработкой и улучшением существующих сайтов. Стоимость и сроки зависят от объема работ.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Подвал -->
+<footer>
+<div class="footer-content">
+    <div>
+        <a href="#" class="footer-logo">(KS)WebStudio</a>
+        <p class="footer-text">Профессиональная разработка сайтов под ключ</p>
+    </div>
+    <div class="social-links">
+        <a href="#" class="social-link">📘</a>
+        <a href="#" class="social-link">📸</a>
+        <a href="#" class="social-link">🐦</a>
+        <a href="#" class="social-link">💼</a>
+    </div>
+</div>
+</footer>
+
+<!-- Модальное окно -->
+<div class="modal" id="order-modal">
+<div class="modal-content">
+<button class="modal-close">&times;</button>
+<h2>Как заказать сайт</h2>
+<p>Чтобы заказать сайт, выполните следующие действия:</p>
+<ol>
+<li>Нажмите кнопку "Написать в WhatsApp" ниже</li>
+<li>В сообщении укажите:
+<ul>
+<li>Тип сайта (визитка, блог, магазин)</li>
+<li>Примерные сроки</li>
+<li>Ваш бюджет</li>
+<li>Особые пожелания</li>
+</ul>
+</li>
+<li>Прикрепите ТЗ (если есть) или опишите проект</li>
+<li>Я отвечу в течение 2 часов в рабочее время</li>
+</ol>
+<a href="https://wa.me/79319980612?text=Здравствуйте!%20Я%20заинтересован%20в%20разработке%20сайта" class="btn" id="whatsapp-btn">Написать в WhatsApp</a>
+</div>
+</div>
+
+<script>
+// Бургер меню
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
+
+hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+});
+
+// Закрытие бургер меню при клике на пустую часть страницы
+document.addEventListener('click', (e) => {
+    if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+        navMenu.classList.remove('active');
+    }
+});
+
+// Переход по ссылкам навигации закрывает меню
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+    });
+});
+
+// Скролл эффект для шапки
+window.addEventListener('scroll', () => {
+    const header = document.querySelector('header');
+    if (window.scrollY > 50) {
+        header.style.padding = '0.7rem 2rem';
+        header.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+    } else {
+        header.style.padding = '1rem 2rem';
+        header.style.boxShadow = '0 4px 12px rgba(0,0,0,0.05)';
+    }
+});
+
+// FAQ аккордеон
+document.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', () => {
+        const answer = q.nextElementSibling;
+        answer.classList.toggle('active');
+        q.querySelector('span').textContent = answer.classList.contains('active') ? '−' : '+';
+    });
+});
+
+// Модальное окно
+const orderModal = document.getElementById('order-modal');
+const orderBtns = document.querySelectorAll('.order-btn, #order-now-btn');
+const closeModalBtn = document.querySelector('.modal-close');
+const whatsappLink = document.getElementById('whatsapp-btn');
+
+orderBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        orderModal.classList.add('active');
+        const serviceType = btn.dataset.service || '';
+        const message = `Здравствуйте! Я хочу заказать: ${serviceType}`;
+        whatsappLink.href = `https://wa.me/79319980612?text=${encodeURIComponent(message)}`;
+    });
+});
+
+closeModalBtn.addEventListener('click', () => {
+    orderModal.classList.remove('active');
+});
+
+window.addEventListener('click', (e) => {
+    if (e.target === orderModal) {
+        orderModal.classList.remove('active');
+    }
+});
+</script>
 </body>
 </html>
